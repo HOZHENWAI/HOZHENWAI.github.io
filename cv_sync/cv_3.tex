@@ -1,0 +1,434 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Freeman Curriculum Vitae
+% XeLaTeX Template
+% Version 2.0 (19/3/2018)
+%
+% This template originates from:
+% http://www.LaTeXTemplates.com
+%
+% Authors:
+% Vel (vel@LaTeXTemplates.com)
+% Alessandro Plasmati
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%!TEX program = xelatex
+% NOTICE: This template must be compiled with XeLaTeX, the line above should
+% ensure this happens automatically but if it doesn't you will need to specify 
+% XeLaTeX as the engine in your editor or script
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[10pt]{article} % Font size, can be: 10pt, 11pt or 12pt
+
+\input{structure.tex} % Include the file that specifies the document structure
+
+% Headers and footers can be added with the \lhead{} \rhead{} \lfoot{} \rfoot{} commands
+% Example right footer:
+%\rfoot{\color{headings}{\sffamily Last update: \today. Typeset with Xe\LaTeX}}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{paracol}{2} % Begin the multi-column environment
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CURRICULUM VITAE TEXT
+%----------------------------------------------------------------------------------------
+
+\parbox[top][0.12\textheight][c]{\linewidth}{ % Parbox to hold the author name and CV text; fixed height to match the coloured box to the right, centred vertically and full line width
+	\vspace{-0.04\textheight} % Reduce whitespace above the parbox to separate it from the main content
+	\centering % Centre text
+	{\sffamily\Huge Dr. ZhenWai Olivier HO}\\\medskip % Your name
+	{\Huge\color{headings}\cvtextfont Curriculum Vitae}
+}
+
+%----------------------------------------------------------------------------------------
+%	MAJOR RESEARCH PROJECT
+%----------------------------------------------------------------------------------------
+
+\section{Doctoral Research}
+
+{\raggedright\textbf{``Contribution to multivariate extreme value theory and stochastic algoritms for Big Data"}\\\medskip}
+
+My research was in part the study of a framework which can recover the most popular multivariate extreme value models. The other part was focused around features selection in the incoherent setting.
+
+\medskip % Extra whitespace before the next section
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education} 
+
+% Blank \educationentry{} command to add another degree:
+
+%\educationentry{} % Duration
+%{} % Degree
+%{} % Honours, achievements or distinctions (e.g. first class honours)
+%{} % Department
+%{} % Institution
+
+% All 5 parameters must be supplied but any can be empty if you don't need them
+
+%------------------------------------------------
+
+\begin{supertabular}{rl} % Start a table with two columns, the table will ensure everything is aligned
+
+	%------------------------------------------------
+	
+	\educationentry{2015 -- 2018} % Duration
+	{Doctor of Philosophy} % Degree
+	{} % Honours, achievements or distinctions (e.g. first class honours)
+	{Laboratoire de Mathématique de Besançon} % Department
+	{Université de Bourgogne Franche-Comté} % Institution
+	
+	%------------------------------------------------
+	
+	\educationentry{2013 -- 2015} % Duration
+	{Master of Statistical modelization} % Degree
+	{Honours} % Honours, achievements or distinctions (e.g. first class honours)
+	{Laboratoire de Mathématique de Besançon} % Department
+	{Université de Franche-Comté} % Institution
+	
+	%------------------------------------------------
+	
+	\educationentry{2010 -- 2013} % Duration
+	{Bachelor of Mathematics} % Degree
+	{First class honours} % Honours, achievements or distinctions (e.g. first class honours)
+	{} % Department
+	{Université de Franche-Comté} % Institution
+	
+	%------------------------------------------------
+
+\end{supertabular}
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+% Blank \workposition command to add another job:
+
+%\workposition{} % Duration
+%{} % FT/PT (full time or part time)
+%{} % Employer
+%{} % Job title
+%{} % Description
+
+% All 5 parameters must be supplied but any can be empty if you don't need them
+
+%------------------------------------------------
+\workposition{2016 -- 2018} % Duration
+{Part time} % FT/PT (full time or part time)
+{\textit{Université de Bourgogne Franche-Comté}} % Employer
+{Assistant teacher} % Job title
+{Taught mathematics to the 1st years and statistics to the 3rd years.} % Description
+
+%------------------------------------------------
+
+\vspace{-\baselineskip}\medskip % Standardise the whitespace after this section and before the next (the custom command adds too much otherwise)
+
+%----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\section{References}
+
+%\textit{References available on request}
+
+%------------------------------------------------
+
+% Example \tableentry{} command to add another line:
+
+%\tableentry{Heading}{Content}{spaceafter}
+
+% All 3 parameters must be supplied but any can be empty if you don't need them
+% A "spaceafter" value in the third parameter will add some vertical space -- this is to be used between headings
+
+%------------------------------------------------
+
+\begin{supertabular}{rl} % Start a table with two columns, the table will ensure everything is aligned
+	
+	%------------------------------------------------
+	
+	\tableentry{}{\textbf{Dr. Stéphane Chrétien}}{spaceafter}
+	\tableentry{Position}{Professor}{spaceafter}
+	\tableentry{Employer}{\href{https://eric.msh-lse.fr/}{ERIC Laboratory and UFR ASSP}}{}
+	\tableentry{}{\href{https://www.univ-lyon2.fr/}{\textit{Université Lyon 2}}}{spaceafter}
+	\tableentry{Mail}{\href{mailto:stephane.chretien@univ-lyon2.fr}{stephane.chretien@univ-lyon2.fr}}{}
+
+	
+	%------------------------------------------------
+	
+	\tableentry{}{}{} % Creates some additional whitespace between the references
+	
+	%------------------------------------------------
+	
+	\tableentry{}{\textbf{Dr. Clément Dombry}}{spaceafter}
+	\tableentry{Position}{Professor}{}
+	\tableentry{Employer}{\href{http://lmb.univ-fcomte.fr/?lang=fr}{Laboratoire de Mathématique de Besançon}}{}
+	\tableentry{}{\href{https://www.ubfc.fr/en/}{\textit{Université de Bourgogne Franche-Comté}}}{spaceafter}
+	\tableentry{Email}{\href{mailto:clement.dombry@univ-fcomte.fr}{clement.dombry@univ-fcomte.fr}}{}
+
+	
+	%------------------------------------------------
+	
+\end{supertabular}
+
+\medskip % Extra whitespace before the next section
+
+%----------------------------------------------------------------------------------------
+
+\switchcolumn % Switch to the next paracol column
+
+%----------------------------------------------------------------------------------------
+%	COLOURED CONTACT DETAILS BOX
+%----------------------------------------------------------------------------------------
+
+\parbox[top][0.12\textheight][c]{\linewidth}{ % Parbox to hold the colour box; fixed height to match the name/CV text to the left, centred vertically and full line width
+	\vspace{-0.04\textheight} % Reduce whitespace above the parbox to separate it from the main content
+	\colorbox{shade}{ % Create the coloured box
+		\begin{supertabular}{p{0.05\linewidth}|p{0.775\linewidth}} % Start a table with two columns, the table will ensure everything is aligned
+			%\raisebox{-1pt}{\faHome} & King's Road, Quarry Bay, Hong Kong \\ % Address
+			\raisebox{-1pt}{\faPhone} & +33 7 87 08 49 54 \\ % Phone number
+			\raisebox{-1pt}{\faWechat} & +33 7 87 08 49 54 \\
+			\raisebox{0pt}{\small\faEnvelope} & \href{mailto:hozhenwai@gmail.com}{hozhenwai@gmail.com} \\ % Email address
+			%\raisebox{-1pt}{\small\faDesktop} & \href{https://github.com/HOZHENWAI/}{https://github.com/HOZHENWAI/} \\ % Website
+			\raisebox{-1pt}{\faGithub} & \href{https://github.com/HOZHENWAI/}{https://github.com/HOZHENWAI/} \\ % GitHub profile
+			\raisebox{-1pt}{\faLinkedinSquare} & \href{https://www.linkedin.com/in/zhen-wai-ho/}{https://www.linkedin.com/in/zhen-wai-ho/} \\ % LinkedIn profile
+			% See fontawesome.pdf in the fonts folder for all icons you can use
+		\end{supertabular}
+	}
+}
+
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+
+%\section{Awards}
+
+% Example \tableentry{} command to add another line:
+
+%\tableentry{Heading}{Content}{spaceafter}
+
+% All 3 parameters must be supplied but any can be empty if you don't need them
+% A "spaceafter" value in the third parameter will add some vertical space -- this is to be used between headings
+
+%------------------------------------------------
+
+%\begin{supertabular}{rl} % Start a table with two columns, the table will ensure everything is aligned
+	
+	%------------------------------------------------
+	
+	%\tableentry{1985}{\textbf{Faculty of Science Masters Scholarship}}{}
+	%\tableentry{}{\textit{Massachusetts Institute of Technology}}{spaceafter}
+	
+	%------------------------------------------------
+	
+	%\tableentry{1983}{\textbf{Top Achiever Award -- Physics}}{}
+	%\tableentry{}{\textit{The University of Washington}}{spaceafter}
+	
+	%------------------------------------------------
+	
+%\end{supertabular}
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS
+%----------------------------------------------------------------------------------------
+
+\section{Computer skills} 
+
+% Example \tableentry{} command to add another line:
+
+%\tableentry{Heading}{Content}{spaceafter}
+
+% All 3 parameters must be supplied but any can be empty if you don't need them
+% A "spaceafter" value in the third parameter will add some vertical space -- this is to be used between headings
+
+%------------------------------------------------
+
+\begin{supertabular}{rl} % Start a table with two columns, the table will ensure everything is aligned
+	
+	%------------------------------------------------
+	
+	\tableentry{Language}{R, bash, Java, Python, Latex}{}
+	\tableentry{}{C++, SQL, Matlab, SAS}{spaceafter}
+	\tableentry{OS}{Windows, Linux}{}
+	%------------------------------------------------
+
+	
+\end{supertabular}
+%------------------------------------------------
+
+\section{Data science skills}
+\begin{supertabular}{rl}
+	\tableentry{Statistics}{tests,  experimental design }{}
+	\tableentry{}{survey, extremes values modelling}{}
+	\tableentry{}{time series}{}
+	\tableentry{Exploratory analysis
+	}{PCA, SVD, NMF}{}
+	\tableentry{}{kNN, EM}{}
+	\tableentry{machine learning}{logistic, SVM}{}
+	\tableentry{}{random forest}{}
+	\tableentry{model validation}{cross validation, bootstrap}{}
+	\tableentry{}{features selection}{}
+\end{supertabular}
+
+%------------------------------------------------
+
+%------------------------------------------------
+
+\section{Certification \& Scholarship}
+\begin{supertabular}{rl}
+	\tableentry{Certification}{TOEIC 990, SAS Base Programming}{}
+	\tableentry{Scholarship}{Excellence-major scholarship}{}
+\end{supertabular}
+
+%------------------------------------------------
+
+\section{Projects}
+\begin{supertabular}{rl}
+	\tableentry{}{\href{https://www.kaggle.com/hozhen/in-depth-eda}{Ashrae Energy Prediction}}{}
+	\tableentry{}{\href{https://www.kaggle.com/hozhen/kernel5f66afdb7f}{Robot Surface Detection}}{}
+\end{supertabular}
+
+%------------------------------------------------
+
+\section{Language}
+\begin{supertabular}{rl}
+	\tableentry{Fluent}{French, English}{}
+	\tableentry{Intermediate}{Cantonese}{}
+	\tableentry{Beginner}{Mandarin}{}
+\end{supertabular}
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS
+%----------------------------------------------------------------------------------------
+
+%\section{Communication Skills}
+
+% Example \tableentry{} command to add another line:
+
+%\tableentry{Heading}{Content}{spaceafter}
+
+% All 3 parameters must be supplied but any can be empty if you don't need them
+% A "spaceafter" value in the third parameter will add some vertical space -- this is to be used between headings
+
+%------------------------------------------------
+
+%\begin{supertabular}{rl} % Start a table with two columns, the table will ensure everything is aligned
+	
+	%------------------------------------------------
+	
+%	\tableentry{Conferences}{Oral Presentation at the Annual MIT}{}
+%	\tableentry{}{Theoretical Physics Conference -- 1987}{spaceafter}
+	
+	%------------------------------------------------
+	
+%	\tableentry{Posters}{Poster at the Meeting of the American}{}
+%	\tableentry{}{Physical Society -- 1985}{spaceafter}
+	
+	%------------------------------------------------
+	
+%\end{supertabular}
+
+%----------------------------------------------------------------------------------------
+%
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	SKILLS DESCRIPTION
+%----------------------------------------------------------------------------------------
+
+%\section{Autres comp}
+
+% Example \longformdescription{} command to add another section:
+
+%\longformdescription{Heading}{Description}
+
+%------------------------------------------------
+
+%\longformdescription{Passionate}{I have been interested in theoretical physics such as quantum mechanics and relativity from an early age. My education and research have cemented this interest into a passion. I greatly enjoy carrying out fundamental physics research with potential practical applications.}
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+
+\section{Publications}
+
+% Example \longformdescription{} command to add another publication:
+
+\longformpublication{Z. W. O. HO, C. Dombry, \href{https://doi.org/10.1016/j.jmva.2019.04.008}{Simple models for multivariate regular variation and the Hüsler-Reiß Pareto distribution.} \textit{Journal of Multivariate Analysis}, \textit{173}, 525-550.}
+%------------------------------------------------
+
+\longformpublication{S. Chrétien, Z. W. O. HO, \href{https://doi.org/10.1007/978-3-319-93764-9_13}{Feature Selection in Weakly Coherent Matrices.} \textit{Lecture Notes in Computer Science}, 10891}
+
+\longformpublication{S. Chrétien, Z. W. O. HO, C. Guyeux, \href{https://doi.org/10.1007/978-3-030-13709-0_19}{Average Performance Analysis of the Stochastic Gradient Method for Online PCA.} \textit{Lecture Notes in Computer Science}, 11331}
+
+\longformpublication{S. Chrétien, Z. W. O. HO, \href{https://doi.org/10.1007/978-3-030-37599-7_9}{Incoherent Submatrix Selection via Approximate Independence Sets in Scalar Product Graphs}, \textit{Lecture Notes in Computer Science}, 11943}
+%\longformpublication{\textbf{Freeman, G. R.} (1996). Chemistry of Multiply Charged Negative Molecular Ions and Clusters in the Gas Phase:  Terrestrial and in Intense Galactic Magnetic Fields. \textit{The Journal of Physical Chemistry}, \textit{100}(11), 4331-4338.}
+
+
+
+% Example \longformdescription{} command to add another publication:
+
+%\longformpublication{Reference (format this manually as desired)}
+
+%------------------------------------------------
+
+%\longformpublication{\textbf{Freeman, G. R.} (1996). Chemistry of Multiply Charged Negative Molecular Ions and Clusters in the Gas Phase:  Terrestrial and in Intense Galactic Magnetic Fields. \textit{The Journal of Physical Chemistry}, \textit{100}(11), 4331-4338.}
+
+
+
+%------------------------------------------------
+
+% As an alternative to a long-form publication list, you can create a shorter summary using only DOI values and years.
+
+% Example \doipublication{} command to add another publication:
+
+%\doipublication{Year}{DOI}{firstauthor}{spaceafter}
+
+% All four parameters are required (can be empty though)
+% A value of "firstauthor" in the third parameter will print the DOI in bold
+% A "spaceafter" value in the fourth parameter will add some vertical space -- this is to be used between years
+
+%------------------------------------------------
+
+%\begin{supertabular}{rl} % Start a table with two columns, the table will ensure everything is aligned
+	
+	%------------------------------------------------
+	
+%	\doipublication{1996}{10.1021/jp951483+}{firstauthor}{spaceafter}
+	
+	%------------------------------------------------
+	
+%	\doipublication{1990}{10.1139/p90-097}{firstauthor}{spaceafter}
+%	\doipublication{1986}{10.1139/v86-297}{}{}
+	
+	%------------------------------------------------
+	
+%	\doipublication{1986}{10.1103/PhysRevA.34.2329}{}{spaceafter}
+	
+	%------------------------------------------------
+	
+	%------------------------------------------------
+	
+%\end{supertabular}
+
+\medskip % Extra whitespace before the next section
+
+%----------------------------------------------------------------------------------------
+
+\end{paracol}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
