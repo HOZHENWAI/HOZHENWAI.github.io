@@ -3331,6 +3331,11 @@ input, select, textarea {
 /* Added */
 
 
+#mainArea {
+	padding: 0 40px;
+}
+
+.clear {clear: both;}
 
 .sectionTitle {
 	float: left;
