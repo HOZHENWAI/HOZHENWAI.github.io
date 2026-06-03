@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HO Zhen Wai — Olivier · Mathematician & AI Engineer</title>
+<meta name="description" content="HO Zhen Wai (Olivier) — mathematician turned full-stack AI engineer. Document AI, LLM systems, quant tinkering, and an over-built homelab.">
+
+<!-- ===================================================================
+     TO ADD A PROJECT OR AN ORGANIZATION LATER:
+     Scroll to the <script> block near the bottom. Just append an object
+     to the PROJECTS or ORGS array — the page renders the cards for you.
+     Copy a "reserved: true" card to keep a slot warm, or fill one in.
+==================================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:        #0d0e10;
+    --ink-2:      #131517;
+    --panel:      #16181b;
+    --line:       rgba(232, 227, 216, 0.10);
+    --line-soft:  rgba(232, 227, 216, 0.05);
+    --paper:      #e9e4d8;
+    --paper-dim:  #b4ae9f;
+    --muted:      #7c776b;
+    --amber:      #e8b15a;
+    --amber-deep: #c98a36;
+    --rust:       #c46a4a;
+    --maxw:       1080px;
+    --gut:        clamp(20px, 5vw, 64px);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ---- atmosphere: grid + grain ---- */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 120% 90% at 50% 0%, #000 30%, transparent 90%);
+    pointer-events: none; z-index: 0;
+  }
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+    opacity: 0.035; pointer-events: none; z-index: 0; mix-blend-mode: screen;
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 var(--gut); }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ---- shared section scaffolding (the "ledger") ---- */
+  .sec { padding: clamp(56px, 9vh, 104px) 0; border-top: 1px solid var(--line); }
+  .sec-head {
+    display: flex; align-items: baseline; gap: 18px;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 38px;
+  }
+  .sec-head .idx { color: var(--amber); font-weight: 700; }
+  .sec-head .rule { flex: 1; height: 1px; background: var(--line); transform: translateY(-4px); }
+
+  /* ============ HERO ============ */
+  header { position: relative; padding: clamp(64px, 14vh, 150px) 0 clamp(40px, 7vh, 76px); }
+
+  .curve { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.55; }
+  .curve path { fill: none; stroke: var(--amber-deep); stroke-width: 1.4; opacity: 0.5;
+    stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: draw 2.6s 0.3s cubic-bezier(.2,.7,.2,1) forwards; }
+  .curve .fillpath { fill: url(#g); stroke: none; opacity: 0; animation: fadein 1.6s 1.6s ease forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes fadein { to { opacity: 0.5; } }
+
+  .eyebrow {
+    position: relative; z-index: 1;
+    font-size: 12.5px; letter-spacing: 0.34em; text-transform: uppercase;
+    color: var(--amber); margin-bottom: 26px;
+  }
+  .eyebrow::before { content: "▚ "; color: var(--amber-deep); }
+
+  h1 {
+    position: relative; z-index: 1;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500; font-optical-sizing: auto;
+    font-size: clamp(2.5rem, 7vw, 5rem); line-height: 1.02;
+    letter-spacing: -0.015em; max-width: 16ch; margin-bottom: 30px;
+  }
+  h1 em { font-style: italic; color: var(--amber); font-weight: 400; }
+
+  .lede {
+    position: relative; z-index: 1;
+    max-width: 60ch; color: var(--paper-dim); font-size: 15.5px; line-height: 1.8;
+  }
+  .lede b { color: var(--paper); font-weight: 500; }
+
+  .meta {
+    position: relative; z-index: 1;
+    display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: center;
+    margin-top: 38px; font-size: 12.5px; letter-spacing: 0.04em; color: var(--muted);
+  }
+  .meta span { display: inline-flex; align-items: center; gap: 8px; }
+  .meta .k { color: var(--amber-deep); }
+
+  .status {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid var(--line); border-radius: 100px; padding: 6px 14px;
+    color: var(--paper-dim); background: var(--ink-2);
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--amber);
+    box-shadow: 0 0 0 0 rgba(232,177,90,.6); animation: pulse 2.4s infinite; }
+  @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(232,177,90,.5)} 70%{box-shadow:0 0 0 8px rgba(232,177,90,0)} 100%{box-shadow:0 0 0 0 rgba(232,177,90,0)} }
+
+  /* ============ FOCUS ============ */
+  .focus { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+  .focus .cell { background: var(--ink); padding: 28px 26px; transition: background .35s ease; }
+  .focus .cell:hover { background: var(--ink-2); }
+  .focus .cell .no { font-size: 11px; letter-spacing: .16em; color: var(--amber-deep); }
+  .focus .cell h3 { font-family: 'Fraunces', serif; font-weight: 500; font-size: 1.32rem; margin: 12px 0 10px; letter-spacing: -0.01em; }
+  .focus .cell p { font-size: 13px; line-height: 1.7; color: var(--muted); }
+
+  /* ============ CARDS (projects + orgs) ============ */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 16px; }
+  .lead-in { color: var(--paper-dim); max-width: 64ch; margin-bottom: 34px; font-size: 14.5px; line-height: 1.8; }
+  .lead-in b { color: var(--paper); font-weight: 500; }
+
+  .card {
+    position: relative; display: flex; flex-direction: column;
+    border: 1px solid var(--line); background: linear-gradient(160deg, var(--panel), var(--ink-2));
+    padding: 22px 22px 20px; min-height: 168px;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .3s ease;
+  }
+  a.card:hover { transform: translateY(-4px); border-color: var(--amber-deep);
+    box-shadow: 0 14px 34px -22px rgba(232,177,90,.6), inset 0 0 0 1px rgba(232,177,90,.12); }
+  .card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .card .org { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--amber-deep); }
+  .card .arrow { font-size: 13px; color: var(--muted); transition: transform .3s ease, color .3s ease; }
+  a.card:hover .arrow { transform: translate(3px, -3px); color: var(--amber); }
+  .card h3 { font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.4rem; margin: 14px 0 9px; letter-spacing: -0.01em; word-break: break-word; }
+  .card p { font-size: 13px; line-height: 1.65; color: var(--paper-dim); flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 16px; }
+  .tag { font-size: 10.5px; letter-spacing: .06em; color: var(--muted); border: 1px solid var(--line); padding: 3px 8px; border-radius: 3px; }
+
+  /* reserved / placeholder slots */
+  .card.reserved { background: repeating-linear-gradient(135deg, var(--ink) 0 10px, var(--ink-2) 10px 20px);
+    border-style: dashed; border-color: var(--line); justify-content: center; align-items: center; text-align: center; }
+  .card.reserved .ph { color: var(--muted); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+  .card.reserved .ph small { display: block; margin-top: 8px; letter-spacing: .04em; text-transform: none; color: rgba(124,119,107,.7); font-size: 11px; }
+
+  /* ============ ELSEWHERE ============ */
+  .links { display: flex; flex-wrap: wrap; gap: 14px; }
+  .lnk { display: inline-flex; align-items: center; gap: 11px; border: 1px solid var(--line);
+    padding: 13px 20px; font-size: 13px; letter-spacing: .03em; background: var(--ink-2);
+    transition: border-color .3s ease, color .3s ease, background .3s ease; }
+  .lnk:hover { border-color: var(--amber-deep); color: var(--amber); background: var(--panel); }
+  .lnk .g { color: var(--amber-deep); }
+
+  footer { border-top: 1px solid var(--line); padding: 30px 0 56px; color: var(--muted); font-size: 11.5px; letter-spacing: .05em;
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; }
+
+  /* ---- reveal on load ---- */
+  .rise { opacity: 0; transform: translateY(16px); animation: rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, .curve path, .curve .fillpath, .rise { animation: none !important; opacity: 1 !important; stroke-dashoffset: 0 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- ===================== HERO ===================== -->
+  <header>
+    <svg class="curve" viewBox="0 0 1000 420" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <defs>
+        <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#e8b15a" stop-opacity="0.16"/>
+          <stop offset="100%" stop-color="#e8b15a" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <!-- a skewed extreme-value (Fréchet-ish) density, drawn -->
+      <path class="fillpath" d="M0,420 C260,420 300,70 420,70 C520,70 560,150 660,230 C780,325 880,392 1000,400 L1000,420 Z"/>
+      <path d="M0,420 C260,420 300,70 420,70 C520,70 560,150 660,230 C780,325 880,392 1000,400"/>
+    </svg>
+
+    <p class="eyebrow rise" style="animation-delay:.05s">HO Zhen Wai · Olivier</p>
+    <h1 class="rise" style="animation-delay:.15s">Mathematician turned <em>full-stack</em> AI engineer.</h1>
+    <p class="lede rise" style="animation-delay:.28s">
+      PhD in <b>extreme value theory</b>; six years building document-intelligence systems
+      for customs &amp; trade. I like problems that need both a whiteboard <b>and</b> a deploy
+      pipeline — designing the right algorithm, then actually shipping it end-to-end.
+    </p>
+    <div class="meta rise" style="animation-delay:.4s">
+      <span><span class="k">◇</span> Strasbourg, France</span>
+      <span><span class="k">◇</span> Co-founder &amp; CDO @ Nabu</span>
+      <span class="status"><span class="dot"></span> open to interesting conversations</span>
+    </div>
+  </header>
+
+  <!-- ===================== 01 · FOCUS ===================== -->
+  <section class="sec">
+    <div class="sec-head"><span class="idx">01</span> What I work on <span class="rule"></span></div>
+    <div class="focus">
+      <div class="cell"><div class="no">01.1</div><h3>Document AI &amp; RAG</h3><p>LangChain / LangGraph, Weaviate &amp; pgvector, visual-rich document understanding, custom OCR pipelines.</p></div>
+      <div class="cell"><div class="no">01.2</div><h3>LLM with rigour</h3><p>Dynamic structured outputs, logprob-calibrated confidence scores, and MILP where it earns its keep.</p></div>
+      <div class="cell"><div class="no">01.3</div><h3>The full stack</h3><p>FastAPI, PostgreSQL, React / Vue, AWS (EKS, SageMaker), Terraform, Kubernetes — plus an observability habit.</p></div>
+      <div class="cell"><div class="no">01.4</div><h3>Applied math</h3><p>Extreme value theory, optimisation, statistical calibration — the foundations underneath the systems.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== 02 · PROJECTS ===================== -->
+  <section class="sec">
+    <div class="sec-head"><span class="idx">02</span> Selected projects <span class="rule"></span></div>
+    <p class="lead-in">A handful of things I've built in the open. More of my work lives across a few
+      single-person organizations (see below) and gets surfaced here as it matures.</p>
+    <div class="grid" id="projects"><!-- rendered from PROJECTS[] --></div>
+  </section>
+
+  <!-- ===================== 03 · ORGANIZATIONS ===================== -->
+  <section class="sec">
+    <div class="sec-head"><span class="idx">03</span> Organizations <span class="rule"></span></div>
+    <p class="lead-in">I keep my work split across a handful of <b>single-person GitHub organizations</b> —
+      one per domain — so each concern stays self-contained, with its own issues, packages and history.
+      It's the same instinct as the homelab: everything gets its own tidy, well-labelled home.
+      These will fill in over time.</p>
+    <div class="grid" id="orgs"><!-- rendered from ORGS[] --></div>
+  </section>
+
+  <!-- ===================== 04 · ELSEWHERE ===================== -->
+  <section class="sec">
+    <div class="sec-head"><span class="idx">04</span> Elsewhere &amp; off the clock <span class="rule"></span></div>
+    <p class="lead-in">Outside work, most of my GitHub is <b>quant &amp; crypto tinkering</b>,
+      <b>ML / RL &amp; generative AI for fun</b>, an over-built <b>homelab</b>, and unrepentant
+      <b>data hoarding</b> — three servers and ~200&nbsp;TB at home, which I assure everyone is
+      "for the homelab" and definitely not just hoarding.</p>
+    <div class="links">
+      <a class="lnk" href="mailto:hozhenwai@gmail.com"><span class="g">@</span> hozhenwai@gmail.com</a>
+      <a class="lnk" href="https://www.linkedin.com/in/zhen-wai-ho/"><span class="g">in</span> LinkedIn</a>
+      <a class="lnk" href="https://github.com/HOZHENWAI"><span class="g">⌥</span> github.com/HOZHENWAI</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© <span id="yr"></span> HO Zhen Wai (Olivier)</span>
+    <span>Catalogued by hand · Strasbourg 🇫🇷</span>
+  </footer>
+
+</div>
+
+<script>
+  /* =================================================================
+     EDIT HERE TO ADD CONTENT — no HTML needed.
+
+     PROJECTS / ORGS render automatically into the grids above.
+     • Add a real entry: copy a filled object and edit the fields.
+     • Keep a slot warm: add  { reserved: true }
+     • url is optional; with no url the card is non-clickable.
+  ================================================================= */
+
+  const PROJECTS = [
+    {
+      name: "Beets-Plugin_VGMdb",
+      org: "HOZHENWAI",
+      url: "https://github.com/HOZHENWAI/Beets-Plugin_VGMdb",
+      desc: "A VGMdb metadata source for the beets music-library manager — proper tags for game & anime soundtracks.",
+      tags: ["python", "beets", "metadata"]
+    },
+    {
+      name: "fast_deskew",
+      org: "HOZHENWAI",
+      url: "https://github.com/HOZHENWAI/fast_deskew",
+      desc: "A fast document-deskew library, born from real OCR pain in the document-intelligence pipeline.",
+      tags: ["python", "ocr", "imaging"]
+    },
+    {
+      name: "py-prisma2markdown",
+      org: "HOZHENWAI",
+      url: "https://github.com/HOZHENWAI/py-prisma2markdown",
+      desc: "Turn a Prisma schema into clean, readable Markdown documentation.",
+      tags: ["python", "tooling", "docs"]
+    },
+    { reserved: true },   // ← copy a filled object above to add another project
+  ];
+
+  const ORGS = [
+    // Example shape — replace with a real org and drop `reserved`:
+    // { handle: "your-org", name: "Display name", domain: "what it's for",
+    //   url: "https://github.com/your-org", blurb: "One line on the domain." },
+    { reserved: true, hint: "one org per domain" },
+    { reserved: true, hint: "one org per domain" },
+  ];
+
+  const el = (html) => { const t = document.createElement('template'); t.innerHTML = html.trim(); return t.content.firstChild; };
+  const esc = (s) => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  function projectCard(p) {
+    if (p.reserved) return el(`<div class="card reserved"><div class="ph">reserved<small>more in the open soon</small></div></div>`);
+    const tags = (p.tags||[]).map(t => `<span class="tag">${esc(t)}</span>`).join('');
+    const inner = `
+      <div class="top"><span class="org">${esc(p.org||'')}</span>${p.url?'<span class="arrow">↗</span>':''}</div>
+      <h3>${esc(p.name)}</h3><p>${esc(p.desc||'')}</p>
+      <div class="tags">${tags}</div>`;
+    return p.url
+      ? el(`<a class="card" href="${esc(p.url)}" target="_blank" rel="noopener">${inner}</a>`)
+      : el(`<div class="card">${inner}</div>`);
+  }
+
+  function orgCard(o) {
+    if (o.reserved) return el(`<div class="card reserved"><div class="ph">open slot<small>${esc(o.hint||'a domain of its own')}</small></div></div>`);
+    const inner = `
+      <div class="top"><span class="org">organization</span>${o.url?'<span class="arrow">↗</span>':''}</div>
+      <h3>${esc(o.name||o.handle)}</h3><p>${esc(o.blurb||'')}</p>
+      <div class="tags">${o.domain?`<span class="tag">${esc(o.domain)}</span>`:''}${o.handle?`<span class="tag">@${esc(o.handle)}</span>`:''}</div>`;
+    return o.url
+      ? el(`<a class="card" href="${esc(o.url)}" target="_blank" rel="noopener">${inner}</a>`)
+      : el(`<div class="card">${inner}</div>`);
+  }
+
+  const pg = document.getElementById('projects');
+  PROJECTS.forEach(p => pg.appendChild(projectCard(p)));
+  const og = document.getElementById('orgs');
+  ORGS.forEach(o => og.appendChild(orgCard(o)));
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
